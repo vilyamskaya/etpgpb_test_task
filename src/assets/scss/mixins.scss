@@ -1,0 +1,14 @@
+@mixin from-br($bp) {
+  $brkpnts: (
+          m: 1024px,
+  );
+
+  @if map-has-key($brkpnts, $bp) {
+    $breakpoint-value: map-get($brkpnts, $bp);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$bp}.';
+  }
+}
