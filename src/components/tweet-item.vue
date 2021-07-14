@@ -125,7 +125,7 @@ export default {
   }
 
   &__date {
-    font-size: $fs-15;
+    font-size: $fs-16;
     font-weight: 700;
     color: var(--color-accent);
     margin-top: $p-10;
