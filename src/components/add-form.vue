@@ -77,6 +77,9 @@ export default {
       border-color: var(--color-accent);
       outline: none;
     }
+    &::-ms-clear {
+      display: none;
+    }
   }
   &__btn {
     width: 30%;

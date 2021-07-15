@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import cssVars from 'css-vars-ponyfill'
 import TwitterFeeds from './components/twitter-feeds'
 import { mapGetters } from 'vuex'
 
@@ -14,6 +15,31 @@ export default {
   },
   computed: {
     ...mapGetters(['color']),
+  },
+  watch: {
+    'color.title': (val) => {
+      if (val === 'light') {
+        cssVars({
+          variables: {
+            '--color-accent': '#af81db',
+            '--color-bg': '#ffffff',
+            '--color-box': '#e3e2ea',
+            '--color-text': '#000000',
+            '--color-border': '#d7dfd9',
+          },
+        })
+      } else {
+        cssVars({
+          variables: {
+            '--color-accent': '#50ae8e',
+            '--color-bg': '#1e2222',
+            '--color-box': '#3a4141',
+            '--color-text': '#ffffff',
+            '--color-border': '#868a86',
+          },
+        })
+      }
+    },
   },
   created() {
     this.$store.dispatch('getColor')
